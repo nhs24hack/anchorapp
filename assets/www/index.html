@@ -1,45 +1,47 @@
-<!DOCTYPE HTML>
-
-<html>
-
-  <head>
-
-    <title>First App</title>
-
-  <script src="js/cordova-2.6.0.js"></script>
-  <script src="js/jquery.mobile-1.3.1.min.js"></script>
-
-  <script>
-
-     function onLoad(){
-
-          document.addEventListener("deviceready",
-onDeviceReady, true);
-
-     }
-
-     function onDeviceReady(){
-navigator.notification.alert("PhoneGap is working!!");
-
-     }
-
-
-  </script>
-
-
-  </head>
-
 
   <body onload="onLoad();">
 
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
 
-       <h1>Welcome to PhoneGap</h1>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script type="text/javascript">
+        function onLoad(){
+          document.addEventListener("deviceready", onDeviceReady, true);
+        }
+        </script>
+    </head>
+    <body>
+          <header>
+              <div class="sub-page-header-nav">
+                  <a href="#back" class="back-arrow"></a>
+                  <span class="title">Drop Anchor +</span>
+              </div>
+              <a href="#alertLink">Alert</a>
+          </header>
+          <div role="main" id="main-container">
+              <ul id="main-menu" class="list-menu">
+                  <li class="list-menu-title"><a href="#">Drop Anchor +</a></li>
+                  <li><a href="#">Explore Anchors</a></li>
+                  <li><a href="#">Explore Chains</a></li>
+                  <li><a href="#">About Anchoring</a></li>
+              </ul>
+          </div>
 
-       <h2>Edit assets/www/index.html</h2>
-
-
-  </body>
-
-
+          <script src="js/cordova-2.6.0.js"></script>
+          <script src="js/jquery.mobile-1.3.1.min.js"></script>
+          <script src="js/main.js"></script>
+    </body>
 </html>
