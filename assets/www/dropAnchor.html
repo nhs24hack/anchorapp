@@ -4,7 +4,7 @@
     </head>
     <body>
     	<script>
-    		//script goes here!
+    		var map = AnchorMap.init('drop-anchor-map');
     	</script>
 	<header>
               <div class="sub-page-header-nav">
@@ -27,7 +27,8 @@
           <textarea name="anchor-trigger" rows=3></textarea>
         </fieldset>
         <fieldset>
-          <label>Location...</label>
+          <label>Location:</label>
+          <div id="drop-anchor-map"></div>
         </fieldset>
         <feildset>
           <label>How bad was this this attack?</label>
