@@ -93,6 +93,11 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+#login-logo { margin: 30px auto; display: block; }
+#login-footer { text-align: center; padding: 30px 15px; background: #00002C; color: #fff; }
+#login-footer a { text-decoration: none; color: #fff;}
+.home-page-header-nav { padding: 5px 30px; }
+
 .sub-page-header-nav { max-width: 100%; padding: 15px; background: #00002C; }
     .sub-page-header-nav .back-arrow { border-style: solid; height: 0; width: 0; display: inline-block; border-width: 15px 15px 15px 0; border-color: transparent white transparent transparent; }
     .sub-page-header-nav .title { color: white; text-align: right; float: right; }
@@ -101,6 +106,11 @@ textarea {
     .list-menu-title a { padding: 30px 15px; background: #00002C; color: #fff; text-align: right; }
     .list-menu li { border-bottom: 1px solid #00002C; }
 
+    #main-menu li { line-height: 5; height: 100px; }
+    #main-menu .list-menu-title { height: auto; line-height: 1; }
+    #main-menu-anchors { background: transparent url(../img/anchor-icon-plain.gif) no-repeat 95% 50%; }
+    #main-menu-chains { background: transparent url(../img/link.gif) no-repeat 95% 50%; }
+    #main-menu-about { background: transparent url(../img/information-icon.gif) no-repeat 95% 50%; }
 .main-container { margin: 15px 0; }
 .main-container > form, .main-container > p { padding: 0 15px; }
 
