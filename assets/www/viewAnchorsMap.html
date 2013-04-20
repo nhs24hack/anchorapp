@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <script>
+    	function onLoad(){
+    		AnchorMap.init('map_canvas');
+    	};
+    </script>
     </head>
-    <body>
+    <body onload="onLoad()">
 	<header>
               <div class="sub-page-header-nav">
                   <a href="index.html" class="back-arrow"></a>
@@ -10,7 +15,7 @@
               </div>
     </header>
     <div role="main" id="main-container">
-		<div id='map_canvas' width="100%" height="100%"></div>
+		<div id='map_canvas'></div>
 	<div>
     </body>
 </html>
