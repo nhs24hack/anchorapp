@@ -15,7 +15,8 @@ AnchorMap = {
     	var mapOptions = {
 			zoom: 16,
 			center: myLatLng,
-			mapTypeId: google.maps.MapTypeId.SATELLITE
+			mapTypeId: google.maps.MapTypeId.SATELLITE,
+			disableDefaultUI: true
 		};
 
 		map = new google.maps.Map(document.getElementById(id), mapOptions);
