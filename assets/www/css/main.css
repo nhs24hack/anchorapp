@@ -101,6 +101,9 @@ textarea {
     .list-menu-title a { padding: 30px 15px; background: #00002C; color: #fff; text-align: right; }
     .list-menu li { border-bottom: 1px solid #00002C; }
 
+.main-container { margin: 15px 0; }
+.main-container > form, .main-container > p { padding: 0 15px; }
+
 
 
 
