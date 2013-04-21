@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+    <header>
+              <div class="sub-page-header-nav">
+                  <a href="menu.html" class="back-arrow ui-btn-text" data-transition="slide" data-direction="reverse"></a>
+                  <span class="title">Anxiety Test</span>
+              </div>
+    </header>
+    <div role="main" class="main-container">
+		<form>
+			<div id="AnxietyTest">
+		   		<div id="Questions">
+		     		<div id="question"></div>
+						<div id="neg">
+							<input value="0" type="radio" name="QuestionOneRadio" id="Q1Answer1">Not at all</br>
+							<input value="1" type="radio" name="QuestionOneRadio" id="Q1Answer2">Only Occasionally</br>
+							<input value="2" type="radio" name="QuestionOneRadio" id="Q1Answer3">Sometimes<br/>
+							<input value="3" type="radio" name="QuestionOneRadio" id="Q1Answer4">Often<br/>
+							<input value="4" type="radio" name="QuestionOneRadio" id="Q1Answer5">Most of the time<br/>
+						</div>
+						<div id="pos">
+							<input value="4" type="radio" name="QuestionOneRadio" id="Q1Answer6">Not at all<br/>
+							<input value="3" type="radio" name="QuestionOneRadio" id="Q1Answer7">Only Occasionally<br/>
+							<input value="2" type="radio" name="QuestionOneRadio" id="Q1Answer8">Sometimes<br/>
+							<input value="1" type="radio" name="QuestionOneRadio" id="Q1Answer9">Often</br>
+							<input value="0" type="radio" name="QuestionOneRadio" id="Q1Answer10">Most of the time</br>
+						</div>
+			
+						<input id="btnSubmit" type="button" value="Submit" onclick="javascript:nextQuestion();" /></br>
+					</div>
+				
+				<div id="Result" class="hidden">
+					<div id="Score"></div>
+				</div>
+			</div>
+		</form>
+    </div>
+    </body>
+</html>

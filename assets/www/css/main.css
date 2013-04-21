@@ -328,3 +328,28 @@ img { max-width: 100%; }
 	width:55px;
 	height:55px;
 }
+
+#AnxietyTest {
+	height: 450px;
+	width: 290px;
+	background-color: black;
+	color: white;
+	font-family: arial;
+	padding: 30px;
+}
+
+#question {
+  margin-bottom: 8px;
+}
+
+#btnSubmit {
+   margin-top: 8px;
+}
+
+#change_me_pos {
+	
+}
+
+.hidden {
+  display:none;
+}
