@@ -138,7 +138,7 @@ $(document).ready( function(){
 	    		var pos;
 				for(var a = 0; a < anchors.length; a++) {
 					var anchor = anchors[a];
-					$('#anchorList').append('<li style="background: transparent url('+anchor.image.src+') no-repeat center center; background-size: cover;"><p><a href="viewAnchorsMap.html">'+ Date(anchor.timestamp * 1000) +'</a></p><p>'+ anchor.tell +'</p></li>');
+					$('#anchorList').append('<li style="background: transparent url('+anchor.image.src+') no-repeat center center; background-size: cover;"><p><a href="viewAnchorsMap.html">'+ Date(anchor.timestamp * 1000) +'</a></p><p>' + anchor.tell + ' - ' + anchor.gesture + '</p><p><strong>Severity:</strong> ' + anchor.attack_rating + ' <strong>Anchor rating:</strong> ' + anchor.anchor_rating + '</p></li>');
 				}
 			}
 		}
