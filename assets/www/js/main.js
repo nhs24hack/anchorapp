@@ -94,6 +94,11 @@ function placeAnchor() {
 	
 	anchor.attack_rating = $('#anchor-attack-severity').val();
 	anchor.anchor_rating = $('#anchor-rating').val();
+
+	if($('#anchor-image').attr('src') != null){
+		anchor.image.type ="local";
+		anchor.image.src = $('#anchor-image').attr('src');
+	}
 	
 	var anchors = getAnchors();
 	if(anchors == null || !jQuery.isArray(anchors)) {
@@ -112,7 +117,20 @@ $(document).ready( function(){
 		if(page == "dropAnchor.html"){
 		    
 			var map = AnchorMap.init('drop-anchor-map');
-		    
+
+			$('#anchor-image-button').click( function(){
+			    navigator.camera.getPicture(onAddAnchorAddImageSuccess, onAddAnchorAddImageFail, { quality: 50, 
+			    destinationType: Camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }); 
+			});
+
+			function onAddAnchorAddImageSuccess(imageURI) {
+			    var image = document.getElementById('anchor-image');
+			    image.src = imageURI;
+			}
+
+			function onAddAnchorAddImageFail(message) {
+			    alert('Failed because: ' + message);
+			}
 		    
 		    
 		} else if(page == "viewAnchorsMap.html") {
@@ -137,6 +155,16 @@ $(document).ready( function(){
 				map.setCenter(pos);
 	    	}
 		
+		}else if(page == "viewAnchorsList.html") {
+			var storage = window.localStorage;
+			var anchors = JSON.parse(storage.getItem('anchors'));
+	    	if(anchors != null) {
+	    		var pos;
+				for(var a = 0; a < anchors.length; a++) {
+					var anchor = anchors[a];
+					$('#anchorList').append('<li style="background: transparent url('+anchor.image.src+') no-repeat center center; background-size: cover;"><p>'+ Date(anchor.timestamp * 1000) +'</p><p>'+ anchor.tell +'</p></li>');
+				}
+			}
 		}
 	});
 });
