@@ -126,7 +126,52 @@ img { max-width: 100%; }
 #anchorList li a { color: #fff; text-shadow: 1px 1px 2px #000; padding: 0; }
 #anchorList li p {padding: 0 15px;}
 
+#CommentPage {
+    background-color: #0F102A;
+    color: white;
+    font-family: arial;
+    padding: 30px;
+}
 
+.Comment {
+    margin-right: 40px;
+    background-color: white;
+    color: black;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.Response {
+    background-color: #004EAB;
+    color: #0F102A;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.AddComment {
+    width: 215px;
+    height: 30px;
+    background-color: #C4E3E0;
+    color: #0F102A;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    padding: 10px;
+}
+
+#LrgLinkImg {
+    margin-left: 40px;
+}
+
+#CommentUnderline {
+    height: 1px;
+    background-color: #004EAB;
+    margin-top: 90px;
+}
 
 /* ==========================================================================
    Helper classes
