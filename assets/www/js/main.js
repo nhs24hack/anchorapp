@@ -110,7 +110,17 @@ $(document).ready( function(){
 					var anchor = anchors[a];
 					pos = new google.maps.LatLng(anchor.latitude, anchor.longitude);
 					
-					var image="img/anchor-icon-plain.gif";
+					var image = "img/1-anchor-icon-var2.gif"; 
+					
+					if (anchor.attack_rating == 1) {
+						image = "img/2-anchor-icon-var2.gif";
+					} else if (anchor.attack_rating == 2) {
+						image = "img/3-anchor-icon-var2.gif";
+					} else if (anchor.attack_rating == 3) {
+						image = "img/4-anchor-icon-var2.gif";
+					} else if (anchor.attack_rating == 4) {
+						image = "img/5-anchor-icon-var2.gif";
+					}
 					
 					var marker = new google.maps.Marker({
 						position : pos,
@@ -122,9 +132,8 @@ $(document).ready( function(){
 				map.setCenter(pos);
 	    	}
 		
-		}else if(page == "viewAnchorsList.html") {
-			var storage = window.localStorage;
-			var anchors = JSON.parse(storage.getItem('anchors'));
+		} else if(page == "viewAnchorsList.html") {
+			var anchors = getAnchors();
 	    	if(anchors != null) {
 	    		var pos;
 				for(var a = 0; a < anchors.length; a++) {
