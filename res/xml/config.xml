@@ -38,7 +38,10 @@
     <log level="DEBUG"/>
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />
+    
 <plugins>
+    <plugin name="File" value="org.apache.cordova.FileUtils" />
+	<plugin name="FileTransfer" value="org.apache.cordova.FileTransfer" />
     <plugin name="App" value="org.apache.cordova.App"/>
     <plugin name="Geolocation" value="org.apache.cordova.GeoBroker"/>
     <plugin name="Device" value="org.apache.cordova.Device"/>
