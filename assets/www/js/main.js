@@ -18,50 +18,17 @@ function getAnchors() {
 	var storage = window.localStorage;
 	var anchors = JSON.parse(storage.getItem('anchors'));
 	return anchors;
-//	var anchors = [];
-//	fileSystem.root.getFile(
-//		"anchors.json", {create:false, exclusive:true},
-//		
-//		function(f) {
-//			reader = new FileReader();
-//		    reader.onloadend = function(e) {
-//		    	var json = e.target.result;
-//		    	if(json != null) {
-//		    		anchors = JSON.parse(json);
-//		    	} else {
-//		    		console.log("NO FILE: " + e.target.result);
-//		    	}
-//		    };
-//		    reader.readAsDataURL(f);
-//		    reader.readAsText(f);
-//		},
-//		
-//		function(e) {
-//			console.log("ERROR reading file: " + e.toString());
-//		}
-//	);
-//	return anchors;
 }
 	
 function writeAnchors(anchors) {
 	var storage = window.localStorage;
 	storage.setItem('anchors', JSON.stringify(anchors));
-//	fileSystem.root.getFile(
-//			"anchors.json", {create:true, exclusive:false}, 
-//			function(f) {
-//				f.createWriter(function(writer) {
-//					var json = JSON.stringify(anchors);
-//					writer.onwrite = function() {
-//						console.log("Done writing " + json + " to file.");
-//					}
-//					writer.write(json);
-//				});
-//			}, 
-//			function(e) {
-//				console.log("ERROR writing to file: " + e.toString());
-//			}
-//	);
 }
+
+$(document).on('tap', 'a[target="_blank"]', function(e){
+    navigator.app.loadUrl(e.target.href, { openExternal: true });
+    return false;
+});
 
 function Anchor() {
 	this.timestamp = 0;
@@ -90,7 +57,7 @@ function placeAnchor() {
 	
 	anchor.tell = $('#anchor-tell').val();
 	anchor.gesture = $('#anchor-gesture').val();
-	anchor.trigger = $('#anchor-gesture').val();
+	anchor.trigger = $('#anchor-trigger').val();
 	
 	anchor.attack_rating = $('#anchor-attack-severity').val();
 	anchor.anchor_rating = $('#anchor-rating').val();
