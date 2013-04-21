@@ -41,7 +41,7 @@ function placeAnchor() {
 	}
 	anchors[anchors.length] = anchor;
 	storage.setItem('anchors', JSON.stringify(anchors));
-	
+	$('#dropAnchor').html('<h1>ANCHOR ADDED!</h1><p>Use the above navigation to go back to the menu.</p>');
 	return false;
 }
 
