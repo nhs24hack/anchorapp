@@ -1,5 +1,66 @@
-function onDeviceReady(){
+var fileSystem = null;
 
+function onDeviceReady(){
+	window.requestFileSystem(
+			LocalFileSystem.PERSISTENT, 0, 
+			
+			function(fs) {
+				fileSystem = fs;
+			},
+			
+			function(e) {
+				console.log("ERROR getting file system: " + e.toString());
+			}
+	);
+}
+
+function getAnchors() {
+	var storage = window.localStorage;
+	var anchors = JSON.parse(storage.getItem('anchors'));
+	return anchors;
+//	var anchors = [];
+//	fileSystem.root.getFile(
+//		"anchors.json", {create:false, exclusive:true},
+//		
+//		function(f) {
+//			reader = new FileReader();
+//		    reader.onloadend = function(e) {
+//		    	var json = e.target.result;
+//		    	if(json != null) {
+//		    		anchors = JSON.parse(json);
+//		    	} else {
+//		    		console.log("NO FILE: " + e.target.result);
+//		    	}
+//		    };
+//		    reader.readAsDataURL(f);
+//		    reader.readAsText(f);
+//		},
+//		
+//		function(e) {
+//			console.log("ERROR reading file: " + e.toString());
+//		}
+//	);
+//	return anchors;
+}
+	
+function writeAnchors(anchors) {
+	var storage = window.localStorage;
+	storage.setItem('anchors', JSON.stringify(anchors));
+//	fileSystem.root.getFile(
+//			"anchors.json", {create:true, exclusive:false}, 
+//			function(f) {
+//				f.createWriter(function(writer) {
+//					var json = JSON.stringify(anchors);
+//					writer.onwrite = function() {
+//						console.log("Done writing " + json + " to file.");
+//					}
+//					writer.write(json);
+//				});
+//			}, 
+//			function(e) {
+//				console.log("ERROR writing to file: " + e.toString());
+//			}
+//	);
 }
 
 function Anchor() {
@@ -34,13 +95,12 @@ function placeAnchor() {
 	anchor.attack_rating = $('#anchor-attack-severity').val();
 	anchor.anchor_rating = $('#anchor-rating').val();
 	
-	var storage = window.localStorage;
-	var anchors = JSON.parse(storage.getItem('anchors'));
+	var anchors = getAnchors();
 	if(anchors == null || !jQuery.isArray(anchors)) {
 		anchors = [];
 	}
 	anchors[anchors.length] = anchor;
-	storage.setItem('anchors', JSON.stringify(anchors));
+	writeAnchors(anchors);
 	$('#dropAnchor').html('<h1>ANCHOR ADDED!</h1><p>Use the above navigation to go back to the menu.</p>');
 	return false;
 }
@@ -58,17 +118,20 @@ $(document).ready( function(){
 		} else if(page == "viewAnchorsMap.html") {
 			var map = AnchorMap.init('map_canvas');
 			
-			var storage = window.localStorage;
-	    	var anchors = JSON.parse(storage.getItem('anchors'));
+			var anchors = getAnchors();
 	    	if(anchors != null) {
 	    		var pos;
 				for(var a = 0; a < anchors.length; a++) {
 					var anchor = anchors[a];
 					pos = new google.maps.LatLng(anchor.latitude, anchor.longitude);
+					
+					var image="img/anchor-icon-plain.gif";
+					
 					var marker = new google.maps.Marker({
 						position : pos,
 						map : map,
-						title : ""+anchor.timestamp
+						title : ""+anchor.timestamp,
+						icon : image
 					});
 				}
 				map.setCenter(pos);
