@@ -73,7 +73,7 @@ function placeAnchor() {
 	}
 	anchors[anchors.length] = anchor;
 	writeAnchors(anchors);
-	$('#dropAnchor').html('<h1>ANCHOR ADDED!</h1><p>Use the above navigation to go back to the menu.</p>');
+	$('#dropAnchor').html('<h1>ANCHOR ADDED!</h1><p>Use the above navigation to go back to the menu or fill in a <a href="anxietyTest.html" data-transition="slide">Anxiety Test</a>.</p>');
 	return false;
 }
 
