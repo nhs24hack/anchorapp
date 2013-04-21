@@ -92,6 +92,16 @@ $(document).ready( function(){
 				map.setCenter(pos);
 	    	}
 		
+		}else if(page == "viewAnchorsList.html") {
+			var storage = window.localStorage;
+			var anchors = JSON.parse(storage.getItem('anchors'));
+	    	if(anchors != null) {
+	    		var pos;
+				for(var a = 0; a < anchors.length; a++) {
+					var anchor = anchors[a];
+					$('#anchorList').append('<li style="background: transparent url('+anchor.image.src+') no-repeat center center; background-size: cover;"><p>'+ Date(anchor.timestamp * 1000) +'</p><p>'+ anchor.tell +'</p></li>');
+				}
+			}
 		}
 	});
 });
